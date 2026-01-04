@@ -23,7 +23,6 @@ RUN pip install --only-binary=:all: fastapi uvicorn requests beautifulsoup4 play
 
 # Install Playwright Browsers (Firefox only to save space/time)
 RUN playwright install firefox
-RUN playwright install-deps firefox
 
 # Copy the rest of the application
 COPY . .
@@ -33,5 +32,6 @@ EXPOSE 8000
 
 # Run the application
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
 
 
