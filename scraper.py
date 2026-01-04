@@ -105,8 +105,7 @@ async def fetch_user_profile(username: str) -> Dict[str, Any]:
     except Exception as e:
         return {"error": str(e), "userName": username}
     finally:
-        await page.close()
-        await context.close()
+        await browser.close()
 
 async def get_gfg_data(username: str) -> Dict[str, Any]:
     """Retrieves quick stats by difficulty."""
@@ -133,8 +132,7 @@ async def get_gfg_data(username: str) -> Dict[str, Any]:
     except Exception as e:
         return {"error": str(e), "userName": username}
     finally:
-        await page.close()
-        await context.close()
+        await browser.close()
         
         
 async def fetch_problem_list(username: str) -> Dict[str, Any]:
@@ -228,5 +226,6 @@ async def fetch_problem_list(username: str) -> Dict[str, Any]:
         except Exception as e:
             return {"error": f"Failed to fetch problem list: {str(e)}", "userName": username}
         finally:
-             await context.close() 
+             await browser.close() 
+
 
