@@ -2,15 +2,12 @@
 import re
 import asyncio
 import os
-import dotenv
 from typing import Dict, Any, Optional
 from playwright.async_api import async_playwright, Browser, Playwright
 
-dotenv.load_dotenv()
-
 # Configuration
 # Ensure BROWSERLESS_TOKEN is in your .env or environment variables
-BROWSERLESS_TOKEN = os.getenv("BROWSERLESS_TOKEN", "")
+BROWSERLESS_TOKEN = os.environ.get("BROWSERLESS_TOKEN", "")
 BROWSER_URL = f"wss://chrome.browserless.io?token={BROWSERLESS_TOKEN}"
 
 GFG_BASE_URL = "https://www.geeksforgeeks.org/profile"
@@ -232,3 +229,4 @@ async def fetch_problem_list(username: str) -> Dict[str, Any]:
             return {"error": f"Failed to fetch problem list: {str(e)}", "userName": username}
         finally:
              await context.close() 
+
