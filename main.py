@@ -42,6 +42,10 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+def health_check():
+    return {"status": "ok", "service": "GFG Scraper"}
+
 # --- 1. User Profile & Summary ---
 @app.get("/profile/{userName}", tags=["User Data"])
 async def get_user_profile(userName: str):
@@ -112,3 +116,4 @@ async def get_stats_card(userName: str):
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=5000)
+
