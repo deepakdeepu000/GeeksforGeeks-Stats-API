@@ -6,7 +6,7 @@ def generate_stats_svg(data: dict) -> str:
     easy = data.get("Easy", 0)
     medium = data.get("Medium", 0)
     hard = data.get("Hard", 0)
-    profile_url = f"https://www.geeksforgeeks.org/profile/{{user_name}}?tab=activity"
+    profile_url = f"https://www.geeksforgeeks.org/profile/{user_name}?tab=activity"
 
     return f"""<svg width="380" height="220" viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg">
 <style>
@@ -86,3 +86,4 @@ svg {{ font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', san
   </g>
 </g>
 </svg>"""
+
